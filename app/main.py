@@ -60,7 +60,7 @@ def main():
                 print(content)
 
     else: 
-        print(f"Response Message Contents:{chat.choices[0].message.content}")
+        print({chat.choices[0].message.content})
 
 if __name__ == "__main__":
     main()
