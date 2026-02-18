@@ -6,12 +6,20 @@ from openai import OpenAI
 
 API_KEY = os.getenv("OPENROUTER_API_KEY")
 BASE_URL = os.getenv("OPENROUTER_BASE_URL", default="https://openrouter.ai/api/v1")
+IS_LOCAL = os.getenv("IS_LOCAL", False)
 
 def read(file_path: str)-> str:
     with open(file_path, "r") as f:
         return f.read()
+
+#Does this need to have a variable number of args instead? 
+def write(file_path: str, content: str)-> None:
+    with open(file_path, "w") as f:
+        f.write(content)
+
     
-TOOLS = {"read": read}
+TOOLS = {"read": read,
+         "write": write}
 
 def main():
     p = argparse.ArgumentParser()
@@ -27,7 +35,7 @@ def main():
 
     while True:
         chat = client.chat.completions.create(
-            model="anthropic/claude-haiku-4.5",
+            model = "z-ai/glm-4.5-air:free" if IS_LOCAL else "anthropic/claude-haiku-4.5"
             messages=messages,
             tools=[
                 {
@@ -46,6 +54,28 @@ def main():
                             "required": ["file_path"],
                         },
                     },
+                }
+
+                {
+                    "type": "function",
+                    "function": {
+                        "name": "Write",
+                        "description": "Write content to a file",
+                        "parameters": {
+                            "type": "object",
+                            "required": ["file_path", "content"],
+                            "properties": {
+                                "file_path": {
+                                    "type": "string",
+                                    "description": "The path of the file to write to"
+                            },
+                            "content": {
+                                "type": "string",
+                                "description": "The content to write to the file"
+                            }
+                        }
+                    }
+                }
                 }
             ],
         )
