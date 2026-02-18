@@ -19,8 +19,7 @@ def write(file_path: str, content: str)-> None:
 
     
 TOOLS = {"read": read,
-         "write": write,
-         "Write": write}
+         "write": write}
 
 def main():
     p = argparse.ArgumentParser()
@@ -61,7 +60,7 @@ def main():
                 {
                     "type": "function",
                     "function": {
-                        "name": "Write",
+                        "name": "write",
                         "description": "Write content to a file",
                         "parameters": {
                             "type": "object",
