@@ -36,7 +36,7 @@ def main():
     while True:
         chat = client.chat.completions.create(
             #model = "z-ai/glm-4.5-air:free"  
-            model = "anthropic/claude-haiku-4.5"
+            model ="anthropic/claude-haiku-4.5",
             messages=messages,
             tools=[
                 {
@@ -55,7 +55,7 @@ def main():
                             "required": ["file_path"],
                         },
                     },
-                }
+                },
 
                 {
                     "type": "function",
@@ -64,20 +64,20 @@ def main():
                         "description": "Write content to a file",
                         "parameters": {
                             "type": "object",
-                            "required": ["file_path", "content"],
                             "properties": {
                                 "file_path": {
                                     "type": "string",
-                                    "description": "The path of the file to write to"
+                                    "description": "The path of the file to write to",
                             },
                             "content": {
                                 "type": "string",
-                                "description": "The content to write to the file"
-                            }
-                        }
-                    }
-                }
-                }
+                                "description": "The content to write to the file",
+                            },
+                        },
+                        "required": ["file_path", "content"],
+                    },
+                },
+                },
             ],
         )
         if not chat.choices or len(chat.choices) == 0:
