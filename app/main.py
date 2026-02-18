@@ -90,13 +90,12 @@ def main():
             for tool_call in message.tool_calls: 
                 fn = tool_call.function
                 function = fn.name
-                function_lower = function.lower()
                 args = json.loads(fn.arguments)
                 messages.append(
                     {
                         "role": "tool",
                         "tool_call_id": tool_call.id,
-                        "content": TOOLS[function_lower](**args),
+                        "content": TOOLS[function](**args),
                     }
                 )
 
