@@ -19,7 +19,8 @@ def write(file_path: str, content: str)-> None:
 
     
 TOOLS = {"read": read,
-         "write": write}
+         "write": write,
+         "Write": write}
 
 def main():
     p = argparse.ArgumentParser()
