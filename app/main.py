@@ -91,7 +91,12 @@ def main():
             for tool_call in message.tool_calls: 
                 fn = tool_call.function
                 function = fn.name
-                args = json.loads(fn.arguments)
+                function_name = function.lower()
+
+                tool_args = json.loads(fn.arguments)
+
+                result = TOOLS[function_name](**tool_args)
+
                 messages.append(
                     {
                         "role": "tool",
@@ -102,6 +107,11 @@ def main():
 
         if chat.choices[0].finish_reason == "stop":
             break
+
+        else:
+            # If no tool calls, the model is done
+            break
+
     print(chat.choices[0].message.content)
 
 
