@@ -30,9 +30,13 @@ calling, agent loop, and how to integrate multiple tools into an AI assistant.
    
 4. If you do not already have an OpenRouter account and key, go to https://openrouter.ai/ and set up an account.
 
-5. Once you have your API key temporarily set the global variable OPENROUTER_API_KEY to your key.
+5. Once you have your API key temporarily set the global variable OPENROUTER_API_KEY to your key in Bash (Linux).
    ```
    export OPENROUTER_API_KEY="your_actual_api_key_here"
+   ```
+6. Run source command to refresh the terminal and apply the changes.
+   ```
+   source ~/.bashrc
    ```
 
 7. Run `./your_program.sh` to run your program, which is implemented in
