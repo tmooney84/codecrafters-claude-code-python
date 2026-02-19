@@ -10,7 +10,7 @@ calling, agent loop, and how to integrate multiple tools into an AI assistant.
 
 ## Installation and Usage
 
-1. Download from GitHub
+1. Download Repo from GitHub.
 
    Using SSH:
    ```
@@ -21,12 +21,19 @@ calling, agent loop, and how to integrate multiple tools into an AI assistant.
    Using HTTPS: https://github.com/tmooney84/codecrafters-claude-code-python.git
    ```
 
-2. Navigate to Local Repo Directory
+2. Navigate to Local Repo Directory.
    ``` 
    cd codecrafters-claude-code-python
    ```
 
 3. Ensure you have `uv` installed locally.
+   
+4. If you do not already have an OpenRouter account and key, go to https://openrouter.ai/ and set up an account.
 
-4. Run `./your_program.sh` to run your program, which is implemented in
+5. Once you have your API key temporarily set the global variable OPENROUTER_API_KEY to your key.
+   ```
+   export OPENROUTER_API_KEY="your_actual_api_key_here"
+   ```
+
+7. Run `./your_program.sh` to run your program, which is implemented in
    `app/main.py`.
