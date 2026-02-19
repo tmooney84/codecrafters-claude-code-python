@@ -107,10 +107,6 @@ def main():
         if chat.choices[0].finish_reason == "stop":
             break
 
-        else:
-            # If no tool calls, the model is done
-            break
-
     print(chat.choices[0].message.content)
 
 
