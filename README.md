@@ -1,4 +1,4 @@
-# Pythonic Implementation Basic Claude Code Clone
+# Pythonic Implementation of Basic Claude Code Clone
 
 Claude Code is an AI coding assistant that uses Large Language Models (LLMs) to
 understand code and perform actions through tool calls. In this challenge,
