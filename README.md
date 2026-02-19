@@ -30,6 +30,3 @@ calling, agent loop, and how to integrate multiple tools into an AI assistant.
 
 4. Run `./your_program.sh` to run your program, which is implemented in
    `app/main.py`.
-
-5. Run `codecrafters submit` to submit your solution to CodeCrafters. Test
-   output will be streamed to your terminal.
