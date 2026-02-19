@@ -52,6 +52,7 @@ def main():
 
     while True:
         chat = client.chat.completions.create(
+            ###use z-ai model for testing
             #model = "z-ai/glm-4.5-air:free",
             model ="anthropic/claude-haiku-4.5",
             messages=messages,
