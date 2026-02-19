@@ -16,7 +16,7 @@ def read(file_path: str)-> str:
 def write(file_path: str, content: str)-> None:
     with open(file_path, "w") as f:
         f.write(content)
-
+    return f"Successfully wrote to {file_path}"
     
 TOOLS = {"read": read,
          "write": write}
