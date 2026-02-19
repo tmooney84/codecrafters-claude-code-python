@@ -29,7 +29,6 @@ def read(file_path: str)-> str:
     with open(file_path, "r") as f:
         return f.read()
 
-#Does this need to have a variable number of args instead? 
 def write(file_path: str, content: str)-> None:
     with open(file_path, "w") as f:
         f.write(content)
